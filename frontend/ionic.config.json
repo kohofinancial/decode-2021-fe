@@ -1,0 +1,7 @@
+{
+  "name": "decode-2021-fe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
