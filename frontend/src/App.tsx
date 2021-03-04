@@ -55,6 +55,7 @@ const App: React.FC = () => (
           <IonTabButton tab="tab1" href="/tab1">
             <IonIcon icon={triangle} />
             <IonLabel>Tab 1</IonLabel>
+            <p>Test change</p>
           </IonTabButton>
           <IonTabButton tab="tab2" href="/tab2">
             <IonIcon icon={ellipse} />
