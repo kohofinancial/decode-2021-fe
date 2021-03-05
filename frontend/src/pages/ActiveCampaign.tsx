@@ -49,7 +49,9 @@ import {
                 <IonButtons slot="start">
                     <IonBackButton text="" icon={chevronBackCircleOutline} className="activeCampaign__back-button" />
                 </IonButtons>
+                { campaign &&
                 <IonTitle>{campaign.popular_name} Campaign</IonTitle>
+                }
             </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
@@ -61,6 +63,7 @@ import {
                     entries={
                         campaign.transactions.map((transaction: any) => {
                             return {
+                                key: transaction._id,
                                 transactionLogo: 'assets/uber-eats-logo.png',
                                 transactionName: transaction.receiver,
                                 donationDate: 'March 5, 2021',

@@ -9,6 +9,7 @@ interface Props {
   campaignGoalProgress: number,
   campaignGoalOverall: number,
   entries: {
+    key?: number
     transactionLogo: string
     transactionName: string
     donationDate: string
@@ -37,6 +38,7 @@ const CampaignDetails: React.FC<Props> = ({ charityLogo, campaignGoalProgress, c
       {entries.map(current => {
         return (
           <CampaignEntries
+            key={current.key}
             transactionLogo={current.transactionLogo}
             transactionName={current.transactionName}
             donationDate={current.donationDate}
