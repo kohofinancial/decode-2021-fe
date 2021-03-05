@@ -1,0 +1,19 @@
+.recommendCharityScreen{
+    color: #373E4D;
+    margin-top: 50px;
+    padding: 20px;
+}
+.card-content-ios{
+    padding: 0;
+    background-color: #F1F5F8;
+}
+.item-native{
+    padding-left: 0;
+}
+.browseText{
+    font-weight: bold;
+    margin: 10px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}

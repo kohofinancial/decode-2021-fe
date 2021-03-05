@@ -1,0 +1,26 @@
+.input{
+  border-bottom: 1.5px solid #9B9EA6;
+  margin-bottom: 24px;
+}
+
+.item{
+  --border-style: 0px;
+  margin-bottom: 16px;
+}
+
+ion-label{
+  --color: #373E4D;
+}
+
+.imgContainer{
+  height: 100px;
+}
+
+.kohoLogo{
+  transform: translateY(calc(30px - 50%));
+  width: 35%;
+  width: 138px;
+  height: 26px;
+  display: block;
+  margin: auto;
+}
