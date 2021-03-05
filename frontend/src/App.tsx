@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupConfig,
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter } from '@ionic/react-router';
 import {
   heartCircleOutline,
   cardOutline,
@@ -41,64 +41,74 @@ import './theme/variables.css';
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
 import CharityDonation from './pages/CharityDonation';
-import LoginScreen from './pages/Login';
+import LoginScreen from './pages/Login/index';
+import { useContext, useState } from 'react';
+import UserContext from './components/UserContext';
 
 setupConfig({
   mode: 'ios',
 });
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/login">
-          <LoginScreen/>
-        </Route>
-        <Route path="/information">
-          {/* This probably requires specific id */}
-          <CharityInformation />
-        </Route>
-        <Route path="/donation">
-          <CharityDonation />
-        </Route>
-        <Route path="/tabs">
-          <IonTabs>
-            <IonRouterOutlet>
-              <Route exact path="/tabs/spending">
-                <SpendingTab />
-              </Route>
-              <Route exact path="/tabs/savings">
-                <SavingsTab />
-              </Route>
-              <Route path="/tabs/giving/landing">
-                <GivingLanding />
-              </Route>
-              <Route exact path="/tabs/">
-                <Redirect to="/tabs/spending" />
-              </Route>
-            </IonRouterOutlet>
-            <IonTabBar slot="bottom">
-              <IonTabButton tab="spending" href="/tabs/spending">
-                <IonIcon icon={cardOutline} />
-                <IonLabel>SPENDING</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="savings" href="/tabs/savings">
-                <IonIcon icon={cashOutline} />
-                <IonLabel>SAVINGS</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="giving" href="/tabs/giving/landing">
-                <IonIcon icon={heartCircleOutline} />
-                <IonLabel>GIVING</IonLabel>
-              </IonTabButton>
-            </IonTabBar>
-          </IonTabs>
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/tabs/" />
-        </Route>
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+
+  //context accessor
+  const [user, setUser] = useState({});
+  
+  return(
+    <UserContext.Provider value={{user, setUser}}>
+      <IonApp>
+        <IonReactHashRouter>
+          <IonRouterOutlet>
+            <Route path="/login">
+              <LoginScreen/>
+            </Route>
+            <Route path="/information">
+              {/* This probably requires specific id */}
+              <CharityInformation />
+            </Route>
+            <Route path="/donation">
+              <CharityDonation />
+            </Route>
+            <Route path="/tabs">
+              <IonTabs>
+                <IonRouterOutlet>
+                  <Route exact path="/tabs/spending">
+                    <SpendingTab />
+                  </Route>
+                  <Route exact path="/tabs/savings">
+                    <SavingsTab />
+                  </Route>
+                  <Route path="/tabs/giving/landing">
+                    <GivingLanding />
+                  </Route>
+                  <Route exact path="/tabs/">
+                    <Redirect to="/tabs/spending" />
+                  </Route>
+                </IonRouterOutlet>
+                <IonTabBar slot="bottom">
+                  <IonTabButton tab="spending" href="/tabs/spending">
+                    <IonIcon icon={cardOutline} />
+                    <IonLabel>SPENDING</IonLabel>
+                  </IonTabButton>
+                  <IonTabButton tab="savings" href="/tabs/savings">
+                    <IonIcon icon={cashOutline} />
+                    <IonLabel>SAVINGS</IonLabel>
+                  </IonTabButton>
+                  <IonTabButton tab="giving" href="/tabs/giving/landing">
+                    <IonIcon icon={heartCircleOutline} />
+                    <IonLabel>GIVING</IonLabel>
+                  </IonTabButton>
+                </IonTabBar>
+              </IonTabs>
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/login/" />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactHashRouter>
+      </IonApp>
+    </UserContext.Provider>
+  );
+};
 
 export default App;

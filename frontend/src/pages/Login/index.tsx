@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IonButton, IonContent, IonIcon, IonInput, IonItem, IonCheckbox, IonLabel } from '@ionic/react';
 import { chevronBackOutline } from 'ionicons/icons'
 import styles from './styles.module.css';
+import UserContext from '../../components/UserContext';
 
 const LoginScreen: React.FC = () => {
   const [username, setUsername] = useState<string|null|undefined>("");
   const [password, setPassword] = useState<string|null|undefined>("");
+  const {user, setUser} = useContext(UserContext);
 
-  const onLogin = () => {
+  const onClick = () => {
     if(username)
       login(username as string);
+  }
+
+  const login = async(name: string) => {
+    let url = "https://decode-be-2021.herokuapp.com/users/";
+    fetch(url, {
+      headers:{
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      body: JSON.stringify({ name })
+    })
+    .then(res => res.json())
+    .then(res => {
+      setUser(res);
+      console.log(res);
+    });
   }
 
   return(
@@ -19,7 +38,7 @@ const LoginScreen: React.FC = () => {
         <IonIcon icon={chevronBackOutline}/>
       </IonItem>
 
-      <div className={styles.imgContainer}>
+      <div className={styles.imgContainer} onClick={() => console.log(user)}> 
         <img src={process.env.PUBLIC_URL + '/assets/koho-logo-white.png'}/> 
       </div>
 
@@ -29,6 +48,7 @@ const LoginScreen: React.FC = () => {
         placeholder="Username"
         value={username}
         onIonChange={(e) => setUsername(e.detail.value)}
+        
       />
       <IonInput 
         className={styles.input} 
@@ -44,7 +64,7 @@ const LoginScreen: React.FC = () => {
 
       <IonButton 
         expand="block" 
-        onClick={onLogin}
+        onClick={onClick}
         color="primary"
       >
         Login
@@ -52,20 +72,6 @@ const LoginScreen: React.FC = () => {
 
     </IonContent>
   )
-}
-
-const login = async(name: string) => {
-  let url = "https://decode-be-2021.herokuapp.com/users/";
-  fetch(url, {
-    headers:{
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify({ name })
-  })
-  .then((res) => res.json())
-  .then((res) => console.log(res));
 }
 
 export default LoginScreen;

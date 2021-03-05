@@ -10,12 +10,16 @@ import {
   IonCardContent,
   IonModal,
 } from '@ionic/react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import CharityDonation from './CharityDonation';
 import './CharityInformation.css';
+import UserContext from '../components/UserContext';
 
 const CharityInformation: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const {user} = useContext(UserContext);
+  console.log(user);
 
   return (
     <IonPage>
