@@ -6,11 +6,13 @@ import {
 } from '@ionic/react';
 import React, { useState, useContext }  from 'react';
 import { useHistory } from "react-router-dom";
+import Notification from '../components/Notification';
 import UserContext from '../components/UserContext';
 import './UberEats.css';
 
 const UberEats: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const history = useHistory();
   const {user} = useContext(UserContext);
 
@@ -21,9 +23,17 @@ const UberEats: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
+
+        <Notification start={showNotification} goto={() => {
+          history.push("/tabs");
+        }}/>
+
         <IonAlert
           isOpen={showAlert}
-          onDidDismiss={() => setShowAlert(false)}
+          onDidDismiss={() => {
+            setShowAlert(false);
+            setShowNotification(true);
+          }}
           header={'Purchase amount'}
           message={'$' + (purchaseAmount = Math.floor(Math.random() * (maxPurchase * 100 - minPurchase * 100) + minPurchase * 100) / 100).toFixed(2)}
           buttons={[
@@ -49,7 +59,7 @@ const UberEats: React.FC = () => {
                   })
                 });
                 // Reroute to home
-                history.push("/tabs");
+                //history.push("/tabs");
               }
             }
           ]}
