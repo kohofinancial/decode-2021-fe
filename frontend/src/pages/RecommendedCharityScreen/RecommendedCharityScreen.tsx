@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { IonList } from '@ionic/react';
+import { IonList, IonRefresher, IonRefresherContent } from '@ionic/react';
 import "./RecommendedCharityScreen.css";
+import { RefresherEventDetail } from '@ionic/core';
 
 
 //components
@@ -22,11 +23,12 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
     const [charities, setCharities] = useState<any>();
     const [campaign, setCampaign] = useState<any>();
     const {user} = useContext(UserContext);
+    const [refreshCount, setRefreshCount] = useState(0);
 
     useEffect(() => {
         retrieveAllCharities(text);
         retrieveCampaign();
-    }, [])
+    }, [refreshCount])
 
     //get api to retrieve all charities
     const retrieveAllCharities = (category: string) => {
@@ -66,13 +68,22 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
         }
     }
 
+    const doRefresh = (event: CustomEvent<RefresherEventDetail>) => {
+        setRefreshCount(refreshCount + 1);
+        setTimeout(() => {
+            event.detail.complete();
+        }, 2000);
+    }
+
     if(user.name){
     return (
         <div className = "recommendCharityScreen">
+            <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+                <IonRefresherContent></IonRefresherContent>
+            </IonRefresher>
             <div>
                 <CharityHeader/>
-                <DonatedValueCard
-                    user = {user}/>
+                <DonatedValueCard/>
                 {campaign && campaign.currentAmount>0 && campaign.currentAmount < campaign.goalAmount && 
                     <GivingProgress
                         data = {campaign} />

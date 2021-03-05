@@ -1,13 +1,12 @@
 import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText, IonIcon } from '@ionic/react';
-import React from 'react';
-
+import React, { useContext } from 'react';
 import { heartCircleOutline } from 'ionicons/icons';
-
+import UserContext from '../../../components/UserContext';
 //css
 import './DonatedValueCard.css';
   
-  const DonatedValueCard: React.FC<any> = ({user}) => {
-    
+const DonatedValueCard: React.FC = () => {
+    const { user } = useContext(UserContext);
     return (
         <IonCard className = "donationCard">
             <IonCardContent>
