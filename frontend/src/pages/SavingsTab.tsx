@@ -1,5 +1,5 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonContent, IonImg, IonPage } from '@ionic/react';
+import React from 'react';
 import Header from '../components/Header';
 import './SavingsTab.css';
 
@@ -8,6 +8,7 @@ const SavingsTab: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent fullscreen>
+        <IonImg src="assets/Saving.jpg" />
       </IonContent>
     </IonPage>
   );
