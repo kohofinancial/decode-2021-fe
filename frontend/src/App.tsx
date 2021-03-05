@@ -7,6 +7,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
+  setupConfig,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { ellipse, square, triangle, heartCircleOutline } from 'ionicons/icons';
@@ -37,6 +38,10 @@ import './theme/variables.css';
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
 import CharityDonation from './pages/CharityDonation';
+
+setupConfig({
+  mode: 'ios'
+})
 
 const App: React.FC = () => (
   <IonApp>
