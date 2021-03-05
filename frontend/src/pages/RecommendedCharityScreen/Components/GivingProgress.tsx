@@ -19,7 +19,7 @@ const GivingProgress: React.FC<any> = ({data}) => {
 
       <IonCardContent className = "charityBottomContainer">
         <div className = "charityName">{data.popular_name}</div>
-        <div className = "charityTitle">${data.currentAmount} of ${data.goalAmount} raised</div>
+        <div className = "charityTitle">{formatDonationValue(data.currentAmount)} of {formatDonationValue(data.goalAmount)} raised</div>
         <div className = "progressBar">
           <div className = "progressedFill" style = {{width: `${data.currentAmount*100/data.goalAmount}%`}}></div>
         </div>
@@ -27,5 +27,11 @@ const GivingProgress: React.FC<any> = ({data}) => {
     </IonCard>
   );
 };
+
+const formatDonationValue = (user: any) => {
+  if(user.balance)
+      return `$${user.balance.toFixed(2)}`;
+  return "$0.00"
+}
 
 export default GivingProgress;
