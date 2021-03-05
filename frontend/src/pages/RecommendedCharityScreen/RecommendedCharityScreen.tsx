@@ -71,8 +71,7 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
         <div className = "recommendCharityScreen">
             <div>
                 <CharityHeader/>
-                <DonatedValueCard
-                    user = {user}/>
+                <DonatedValueCard/>
                 {campaign && campaign.currentAmount>0 && campaign.currentAmount < campaign.goalAmount && 
                     <GivingProgress
                         data = {campaign} />
