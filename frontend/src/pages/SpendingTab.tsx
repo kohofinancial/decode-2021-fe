@@ -1,8 +1,6 @@
 import {
-  IonButton,
   IonContent,
   IonImg,
-  IonLabel,
   IonPage,
 } from '@ionic/react';
 import React from 'react';

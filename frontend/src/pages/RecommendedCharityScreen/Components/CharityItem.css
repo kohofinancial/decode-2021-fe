@@ -46,3 +46,9 @@
 .charityIonItem{
     --border-style: 0px;
 }
+
+.ionCardHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,6 +4,7 @@ import {
     IonModal, IonButton, IonContent, IonItem, IonFooter, IonToolbar
 } from '@ionic/react';
 import { chevronBackOutline } from 'ionicons/icons'
+import { useHistory } from "react-router-dom";
 
 //css
 import './CharityItem.css';
@@ -12,21 +13,23 @@ const CharityItem: React.FC<any> = ({ data }) => {
 
     const [open, setOpen] = useState(false);
 
-    const getInfo = async(data: any) => {
-        const slug = data.slug;
-        const url = "https://decode-be-2021.herokuapp.com/charities/" + slug;
-        fetch(url) 
-        .then(res => res.json())
-        .then(res => console.log(res))
-    };
+    // const getInfo = async(data: any) => {
+    //     const slug = data.slug;
+    //     const url = "https://decode-be-2021.herokuapp.com/charities/" + slug;
+    //     fetch(url) 
+    //     .then(res => res.json())
+    //     .then(res => console.log(res))
+    // };
 
     const description = data.charity_profile.about_en || "<p>No description found.</p>";
 
+    const history = useHistory();
     return (
+        <div onClick = {() => history.push("/information/")}>
         <IonCard className = "ionCard" onClick={() => setOpen(true)}>
-            <IonCardHeader>
-                <div className="charityLogo">
-                    <img src={"https://www.canadahelps.org" + data.charity_profile.logo}/>
+            <IonCardHeader className = "ionCardHeader">
+                <div className = "charityLogo">
+                    <img src = {"https://www.canadahelps.org" + data.charity_profile.logo}/>
                 </div>
             </IonCardHeader>
 
@@ -67,6 +70,7 @@ const CharityItem: React.FC<any> = ({ data }) => {
             </IonModal>
 
         </IonCard>
+        </div>
     );
 };
 

@@ -1,9 +1,7 @@
 import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText, IonIcon } from '@ionic/react';
 import React, { useContext } from 'react';
-import UserContext from '../../../components/UserContext';
-
 import { heartCircleOutline } from 'ionicons/icons';
-
+import UserContext from '../../../components/UserContext';
 //css
 import './DonatedValueCard.css';
   
@@ -24,7 +22,7 @@ const DonatedValueCard: React.FC = () => {
                                 <IonText>You have donated:</IonText>
                             </IonRow>
                             <IonRow>
-                                <div className = "donationValue">{formatDonationValue(user)}</div>
+                                <div className = "donationValue">{formatDonationValue(user.totalDonated)}</div>
                             </IonRow>
                         </IonCol>
                     </IonRow>

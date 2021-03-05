@@ -10,7 +10,7 @@ import './Header.css';
 
 const Header: React.FC = () => {
   return (
-    <IonHeader>
+    <IonHeader className="app-header">
       <IonToolbar>
         <div>
           See total balance <IonIcon color="warning" icon={caretDownOutline} />

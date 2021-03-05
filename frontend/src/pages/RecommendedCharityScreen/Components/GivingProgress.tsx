@@ -1,9 +1,16 @@
 import { IonCard, IonCardHeader, IonCardContent } from '@ionic/react';
+import { useHistory } from "react-router-dom";
 import './GivingProgress.css';
 
 const GivingProgress: React.FC<any> = ({data}) => {
+  const history = useHistory();
+
+  const routeActiveCampaign = () => {
+      history.push("/tabs/giving/campaign");
+  }
+
   return (
-    <IonCard className = "ionCard">
+    <IonCard className = "ionCard" onClick={routeActiveCampaign}>
       <IonCardHeader>
         <div className = "charityLogo">
             <img src = {"https://www.canadahelps.org" + data.logo_en}/>
