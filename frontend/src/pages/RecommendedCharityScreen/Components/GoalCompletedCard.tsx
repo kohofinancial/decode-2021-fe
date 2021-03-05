@@ -1,7 +1,5 @@
-import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText } from '@ionic/react';
+import { IonCard, IonCardContent } from '@ionic/react';
 import React from 'react';
-
-import ribbon from '../../../images/ribbon.png';
 
 //css
 import './GoalCompletedCard.css';
