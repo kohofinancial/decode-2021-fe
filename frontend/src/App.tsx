@@ -14,11 +14,9 @@ import {
   heartCircleOutline,
   cardOutline,
   cashOutline,
-  hammerOutline,
 } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import SpendingTab from './pages/SpendingTab';
+import SavingsTab from './pages/SavingsTab';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -43,6 +41,7 @@ import './theme/variables.css';
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
 import CharityDonation from './pages/CharityDonation';
+import LoginScreen from './pages/Login';
 
 setupConfig({
   mode: 'ios',
@@ -52,6 +51,9 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route path="/login">
+          <LoginScreen/>
+        </Route>
         <Route path="/information">
           {/* This probably requires specific id */}
           <CharityInformation />
@@ -63,13 +65,10 @@ const App: React.FC = () => (
           <IonTabs>
             <IonRouterOutlet>
               <Route exact path="/tabs/spending">
-                <Tab1 />
+                <SpendingTab />
               </Route>
               <Route exact path="/tabs/savings">
-                <Tab2 />
-              </Route>
-              <Route path="/tabs/tools">
-                <Tab3 />
+                <SavingsTab />
               </Route>
               <Route path="/tabs/giving/landing">
                 <GivingLanding />
@@ -89,10 +88,6 @@ const App: React.FC = () => (
               <IonTabButton tab="savings" href="/tabs/savings">
                 <IonIcon icon={cashOutline} />
                 <IonLabel>SAVINGS</IonLabel>
-              </IonTabButton>
-              <IonTabButton tab="tools" href="/tabs/tools">
-                <IonIcon icon={hammerOutline} />
-                <IonLabel>TOOLS</IonLabel>
               </IonTabButton>
               <IonTabButton tab="giving" href="/tabs/giving/landing">
                 <IonIcon icon={heartCircleOutline} />
