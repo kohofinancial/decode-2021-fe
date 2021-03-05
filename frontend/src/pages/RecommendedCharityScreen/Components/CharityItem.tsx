@@ -5,7 +5,7 @@ import './CharityItem.css';
 
 const CharityItem: React.FC<any> = ({ data }) => {
     return (
-        <IonCard>
+        <IonCard className = "ionCard">
             <IonCardHeader>
                 <div className = "charityLogo">
                     <img src = {"https://www.canadahelps.org" + data.charity_profile.logo}/>

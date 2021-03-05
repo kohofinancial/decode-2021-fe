@@ -1,3 +1,6 @@
+.ionCard{
+    margin: 20px 10px;
+}
 .charityLogo{
     display: flex;
     justify-content: center;

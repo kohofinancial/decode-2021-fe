@@ -32,12 +32,12 @@ const RecommendedCharityScreen: React.FC = () => {
 
     return (
         <div className = "recommendCharityScreen">
-            <div className = "header">
-                <div className = "title">Donations</div>
+            <div>
+                <div className = "recommendedTitle">Donations</div>
                 <div className = "description">
                     With everything that’s happening right now, it’s a great time to give back to the community.
                 </div>
-                <IonCard>
+                <IonCard className = "donationCard">
                     <IonCardContent>
                         <IonGrid>
                             <IonRow>

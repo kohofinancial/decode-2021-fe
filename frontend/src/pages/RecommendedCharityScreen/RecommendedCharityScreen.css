@@ -3,7 +3,7 @@
     margin-top: 50px;
     padding: 20px;
 }
-.title{
+.recommendedTitle{
     font-weight: bold;
     font-size: 32px;
     margin-bottom: 10px;
@@ -22,4 +22,7 @@
 }
 .item-native{
     padding-left: 0;
+}
+.donationCard{
+    margin: 20px 0;
 }
