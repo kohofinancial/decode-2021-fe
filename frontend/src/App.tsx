@@ -75,6 +75,9 @@ const App: React.FC = () => {
             <Route path="/thankyou">
               <Reward />
             </Route>
+            <Route path="/campaign">
+              <ActiveCampaign />
+            </Route>
             <Route path="/tabs">
               <IonTabs>
                 <IonRouterOutlet>
@@ -92,9 +95,6 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/tabs/">
                     <Redirect to="/tabs/spending" />
-                  </Route>
-                  <Route path="/tabs/giving/campaign">
-                    <ActiveCampaign />
                   </Route>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">

@@ -1,14 +1,20 @@
 import {
     IonContent,
     IonPage,
-    IonImg,
-    IonAlert,
+    IonBackButton,
+    IonButtons,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
   } from '@ionic/react';
   import React, { useState, useContext, useEffect }  from 'react';
   import { useHistory } from "react-router-dom";
   import UserContext from '../components/UserContext';
   import CampaignDetails from '../components/CampaignDetails/CampaignDetails';
-  import './UberEats.css';
+  import {
+    chevronBackCircleOutline,
+  } from 'ionicons/icons';
+  import './ActiveCampaign.css';
   
   const ActiveCampaign: React.FC = () => {
     const history = useHistory();
@@ -38,6 +44,14 @@ import {
 
     return (
       <IonPage>
+        <IonHeader >
+            <IonToolbar>
+                <IonButtons slot="start">
+                    <IonBackButton text="" icon={chevronBackCircleOutline} className="activeCampaign__back-button" />
+                </IonButtons>
+                <IonTitle>{campaign.popular_name} Campaign</IonTitle>
+            </IonToolbar>
+        </IonHeader>
         <IonContent fullscreen>
             {campaign &&
                 <CampaignDetails 
