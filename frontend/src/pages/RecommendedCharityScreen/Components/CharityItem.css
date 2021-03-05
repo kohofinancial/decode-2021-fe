@@ -19,3 +19,8 @@
     color: #00579B;
     font-size: 14px;
 }
+.ionCardHeader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
