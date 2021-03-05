@@ -24,15 +24,23 @@
     font-size: 24px;
     margin: 20px;
     text-align: center;
+    color: #373E4D;
 }
 
 .charityInnerHTML{
-margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 .charityInnerHTML > *{
     display: inline-block;
     margin: 0px 24px 24px 24px;
+    color: #373E4D;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.charityInnerHTML > div{
+    margin: 0px 24px 0px 24px;
 }
 
 .charityIonItem{
