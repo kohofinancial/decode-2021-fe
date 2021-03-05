@@ -54,21 +54,17 @@ const App: React.FC = () => {
 
   //context accessor
   const [user, setUser] = useState({});
-  
-  return(
-    <UserContext.Provider value={{user, setUser}}>
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
       <IonApp>
         <IonReactRouter>
           <IonRouterOutlet>
             <Route path="/login">
-              <LoginScreen/>
+              <LoginScreen />
             </Route>
             <Route path="/information">
-              {/* This probably requires specific id */}
               <CharityInformation />
-            </Route>
-            <Route path="/donation">
-              <CharityDonation />
             </Route>
             <Route path="/uber-eats/">
               <UberEats />
