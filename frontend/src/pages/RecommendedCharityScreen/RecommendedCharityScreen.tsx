@@ -12,6 +12,7 @@ import DonatedValueCard from './Components/DonatedValueCard';
 import GivingProgress from './Components/GivingProgress';
 import GoalCompletedCard from './Components/GoalCompletedCard';
 import UserContext from '../../components/UserContext';
+import { useHistory } from "react-router-dom";
 
 interface ContainerProps {
     onGoing: boolean,
@@ -24,11 +25,16 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
     const [campaign, setCampaign] = useState<any>();
     const {user} = useContext(UserContext);
     const [refreshCount, setRefreshCount] = useState(0);
+    const history = useHistory();
 
     useEffect(() => {
         retrieveAllCharities(text);
         retrieveCampaign();
     }, [refreshCount])
+
+    const openCharityPage = (charity: any) => {
+        history.push('/information', charity);
+    }
 
     //get api to retrieve all charities
     const retrieveAllCharities = (category: string) => {
@@ -53,9 +59,11 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
             if(campaign.length >0){
                 fetch("https://decode-be-2021.herokuapp.com/charities/" + campaign[0].name)
                 .then(response => {
-                    return (response.ok) ?  response.json() : new Error("Mistake!")
+                    // return (response.ok) ?  response.json() : new Error("Mistake!")
+                    return response.json()
                 }).then(charities => {
-                    setCampaign({...campaign[0], logo_en: charities.profile.logo_en, popular_name: charities.popular_name_en})
+                    console.log(charities)
+                    setCampaign({...campaign[0], logo_en: charities.profile?.logo_en, popular_name: charities.popular_name_en})
                 })
             }
         })
@@ -84,11 +92,11 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
             <div>
                 <CharityHeader/>
                 <DonatedValueCard/>
-                {campaign && campaign.currentAmount>0 && campaign.currentAmount < campaign.goalAmount && 
+                {campaign && campaign.currentAmount < campaign.goalAmount && 
                     <GivingProgress
                         data = {campaign} />
                 }
-                {campaign && campaign.currentAmount === campaign.goalAmount &&
+                {campaign && campaign.currentAmount >= campaign.goalAmount &&
                     <GoalCompletedCard
                         data = {campaign}/>}
                 {(onGoing || filled) &&
@@ -103,9 +111,11 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
                 {
                    charities && charities.map((charity: any) => {
                         return (
+                        <div onClick={() => openCharityPage(charity)}>
                             <CharityItem
                                 key = {charity.business_number}
                                 data = {charity}/>
+                        </div>
                         )
                     })
                 }
