@@ -6,7 +6,7 @@ const GivingProgress: React.FC<any> = ({data}) => {
   const history = useHistory();
 
   const routeActiveCampaign = () => {
-      history.push("/tabs/giving/campaign");
+      history.push("/campaign");
   }
 
   return (
