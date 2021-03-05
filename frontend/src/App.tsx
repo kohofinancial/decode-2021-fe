@@ -47,6 +47,7 @@ import LoginScreen from './pages/Login/index';
 import { useState } from 'react';
 import UserContext from './components/UserContext';
 import UberEats from './pages/UberEats';
+import ActiveCampaign from './pages/ActiveCampaign';
 
 setupConfig({
   mode: 'ios',
@@ -88,6 +89,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/tabs/">
                     <Redirect to="/tabs/spending" />
+                  </Route>
+                  <Route path="/tabs/giving/campaign">
+                    <ActiveCampaign />
                   </Route>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
