@@ -38,8 +38,8 @@ const LoginScreen: React.FC = () => {
         <IonIcon icon={chevronBackOutline}/>
       </IonItem>
 
-      <div className={styles.imgContainer} onClick={() => console.log(user)}> 
-        <img src={process.env.PUBLIC_URL + '/assets/koho-logo-white.png'}/> 
+      <div className={styles.imgContainer}>
+        <img className = "kohoLogo" src={process.env.PUBLIC_URL + '/assets/koho-logo-white.png'}/> 
       </div>
 
       <IonInput 

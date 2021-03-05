@@ -1,0 +1,8 @@
+.donationCard{
+    margin: 20px 10px;
+}
+.donationValue{
+    color: #00579B;
+    font-weight: bolder;
+    font-size: 32px;
+}

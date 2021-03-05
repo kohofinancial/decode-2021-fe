@@ -1,0 +1,13 @@
+.progressBar{
+    width: "100%";
+    height: 15px;
+    background-color: #E5E5E5;
+    border-radius: 25px;
+}
+.progressedFill{
+    margin-top: 10px;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #F38374;
+    width: 50px;
+}
