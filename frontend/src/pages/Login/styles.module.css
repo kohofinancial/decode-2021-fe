@@ -16,7 +16,7 @@ ion-label{
   height: 100px;
 }
 
-img{
+.kohoLogo{
   transform: translateY(calc(30px - 50%));
   width: 35%;
   width: 138px;

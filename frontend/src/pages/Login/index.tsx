@@ -20,7 +20,7 @@ const LoginScreen: React.FC = () => {
       </IonItem>
 
       <div className={styles.imgContainer}>
-        <img src={process.env.PUBLIC_URL + '/assets/koho-logo-white.png'}/> 
+        <img className = "kohoLogo" src={process.env.PUBLIC_URL + '/assets/koho-logo-white.png'}/> 
       </div>
 
       <IonInput 
