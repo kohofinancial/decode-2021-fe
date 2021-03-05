@@ -1,10 +1,12 @@
-import { IonContent, IonPage, } from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
+import Header from '../components/Header';
 import GivingProgress from './GivingProgress';
 import RecommendedCharityScreen from './RecommendedCharityScreen/RecommendedCharityScreen';
 
 const GivingLanding: React.FC = () => {
   return (
     <IonPage>
+      <Header />
       <IonContent fullscreen>
         {
           true ? 
