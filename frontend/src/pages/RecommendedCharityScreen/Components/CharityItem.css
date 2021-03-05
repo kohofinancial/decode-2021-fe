@@ -1,0 +1,21 @@
+.ionCard{
+    margin: 20px 10px;
+}
+.charityLogo{
+    display: flex;
+    justify-content: center;
+}
+.charityBottomContainer{
+    padding: 10px !important;
+}
+.charityTitle{
+    font-size: 20px;
+    font-weight: bold;
+}
+.charityDescription{
+    max-height:60px;
+    line-height:20px;
+    overflow:hidden;
+    color: #00579B;
+    font-size: 14px;
+}
