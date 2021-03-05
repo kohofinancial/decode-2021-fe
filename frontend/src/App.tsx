@@ -9,7 +9,7 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, square, triangle, heartCircleOutline } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
 import Tab3 from './pages/Tab3';
@@ -33,6 +33,9 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+//components
+import GivingLanding from './pages/GivingLanding';
+
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
@@ -46,6 +49,9 @@ const App: React.FC = () => (
           </Route>
           <Route path="/tab3">
             <Tab3 />
+          </Route>
+          <Route path="/giving">
+            <GivingLanding />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
@@ -63,6 +69,10 @@ const App: React.FC = () => (
           <IonTabButton tab="tab3" href="/tab3">
             <IonIcon icon={square} />
             <IonLabel>Tab 3</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="giving" href="/giving">
+            <IonIcon icon={heartCircleOutline} />
+            <IonLabel>Giving</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
