@@ -1,12 +1,15 @@
 import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText, IonIcon } from '@ionic/react';
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../../../components/UserContext';
 
 import { heartCircleOutline } from 'ionicons/icons';
 
 //css
 import './DonatedValueCard.css';
   
-  const DonatedValueCard: React.FC = () => {
+const DonatedValueCard: React.FC = () => {
+    const { user } = useContext(UserContext);
+    console.log(user);
     return (
         <IonCard className = "donationCard">
             <IonCardContent>
@@ -22,7 +25,7 @@ import './DonatedValueCard.css';
                                 <IonText>You have donated:</IonText>
                             </IonRow>
                             <IonRow>
-                                <div className = "donationValue">$0.00</div>
+                                <div className = "donationValue">{formatDonationValue(user)}</div>
                             </IonRow>
                         </IonCol>
                     </IonRow>
@@ -30,6 +33,12 @@ import './DonatedValueCard.css';
             </IonCardContent>
         </IonCard>
     );
-  };
-  
-  export default DonatedValueCard;
+};
+
+const formatDonationValue = (user: any) => {
+    if(user.balance)
+        return `$${user.balance.toFixed(2)}`;
+    return "$0.00"
+}
+
+export default DonatedValueCard;
