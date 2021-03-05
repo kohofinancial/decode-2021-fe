@@ -36,6 +36,8 @@ import './theme/variables.css';
 //components
 import GivingLanding from './pages/GivingLanding';
 import Page from './pages/Page';
+import CharityInformation from './pages/CharityInformation';
+import CharityDonation from './pages/CharityDonation';
 
 const App: React.FC = () => (
   <IonApp>
@@ -45,6 +47,13 @@ const App: React.FC = () => (
         <Route path="/page">
           <Page />
         </Route>
+        <Route path="/information">
+            {/* This probably requires specific id */}
+            <CharityInformation />
+          </Route>
+          <Route path="/donation">
+            <CharityDonation />
+          </Route>
         <Route path="/tabs">
           <IonTabs>
             <IonRouterOutlet>
@@ -59,9 +68,6 @@ const App: React.FC = () => (
               </Route>
               <Route path="/tabs/giving/landing">
                 <GivingLanding />
-              </Route>
-              <Route path="/tabs/giving exact">
-                <Redirect to="/tabs/giving/landing" />
               </Route>
               <Route exact path="/tabs/">
                 <Redirect to="/tabs/tab1" />
@@ -80,7 +86,7 @@ const App: React.FC = () => (
                 <IonIcon icon={square} />
                 <IonLabel>Tab 3</IonLabel>
               </IonTabButton>
-              <IonTabButton tab="giving" href="/tabs/giving">
+              <IonTabButton tab="giving" href="/tabs/giving/landing">
                 <IonIcon icon={heartCircleOutline} />
                 <IonLabel>Giving</IonLabel>
               </IonTabButton>

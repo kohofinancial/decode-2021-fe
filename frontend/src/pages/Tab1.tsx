@@ -17,18 +17,20 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>Testing</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
+            <IonTitle size="large">Testing</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
-        <IonButton routerLink="/page">
-          <IonLabel>User 1</IonLabel>
+        <IonButton routerLink="/information">
+          <IonLabel>Charity Information</IonLabel>
+        </IonButton>
+        <IonButton routerLink="/donation">
+          <IonLabel>Charity Donation</IonLabel>
         </IonButton>
       </IonContent>
     </IonPage>
