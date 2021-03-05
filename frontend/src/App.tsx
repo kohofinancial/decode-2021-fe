@@ -45,6 +45,7 @@ import LoginScreen from './pages/Login/index';
 import { useState } from 'react';
 import UserContext from './components/UserContext';
 import UberEats from './pages/UberEats';
+import Reward from './pages/Reward';
 
 setupConfig({
   mode: 'ios',
@@ -68,6 +69,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/uber-eats/">
               <UberEats />
+            </Route>
+            <Route path="/thankyou">
+              <Reward />
             </Route>
             <Route path="/tabs">
               <IonTabs>
