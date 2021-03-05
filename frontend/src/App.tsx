@@ -42,11 +42,11 @@ import './theme/variables.css';
 //components
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
-import CharityDonation from './pages/CharityDonation';
 import LoginScreen from './pages/Login/index';
 import { useState } from 'react';
 import UserContext from './components/UserContext';
 import UberEats from './pages/UberEats';
+import Reward from './pages/Reward';
 import ActiveCampaign from './pages/ActiveCampaign';
 
 setupConfig({
@@ -66,11 +66,14 @@ const App: React.FC = () => {
             <Route path="/login">
               <LoginScreen />
             </Route>
-            <Route path="/information">
+            {/* <Route path="/information">
               <CharityInformation />
-            </Route>
+            </Route> */}
             <Route path="/uber-eats/">
               <UberEats />
+            </Route>
+            <Route path="/thankyou">
+              <Reward />
             </Route>
             <Route path="/tabs">
               <IonTabs>

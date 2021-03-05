@@ -23,9 +23,7 @@ const CharityItem: React.FC<any> = ({ data }) => {
 
     const description = data.charity_profile.about_en || "<p>No description found.</p>";
 
-    const history = useHistory();
     return (
-        <div onClick = {() => history.push("/information/")}>
         <IonCard className = "ionCard" onClick={() => setOpen(true)}>
             <IonCardHeader className = "ionCardHeader">
                 <div className = "charityLogo">
@@ -70,7 +68,6 @@ const CharityItem: React.FC<any> = ({ data }) => {
             </IonModal>
 
         </IonCard>
-        </div>
     );
 };
 
