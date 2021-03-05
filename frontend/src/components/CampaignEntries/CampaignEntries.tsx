@@ -41,7 +41,7 @@ const CampaignEntries: React.FC<Props> = ({ transactionLogo, transactionName, do
         </p>
       </div>
 
-      <p className="transactionName"> ${donationAmount} </p>
+      <p className="transactionName"> ${donationAmount.toFixed(2)} </p>
     </div>
   );
 };

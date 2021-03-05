@@ -18,6 +18,8 @@ import {
 import SpendingTab from './pages/SpendingTab';
 import SavingsTab from './pages/SavingsTab';
 
+import './App.css';
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -40,7 +42,6 @@ import './theme/variables.css';
 //components
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
-import CharityDonation from './pages/CharityDonation';
 import LoginScreen from './pages/Login/index';
 import { useState } from 'react';
 import UserContext from './components/UserContext';
@@ -90,6 +91,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/tabs/">
                     <Redirect to="/tabs/spending" />
+                  </Route>
+                  <Route path="/tabs/giving/campaign">
+                    <ActiveCampaign />
                   </Route>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
