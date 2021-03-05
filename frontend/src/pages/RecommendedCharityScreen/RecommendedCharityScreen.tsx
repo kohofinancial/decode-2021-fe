@@ -28,6 +28,9 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
 
     //get api to retrieve all charities
     const retrieveAllCharities = (category: string) => {
+        if (!category) {
+            category = "animals";
+        }
         fetch("https://decode-be-2021.herokuapp.com/charities?category=" + category,{headers: {
             "Accept": "application/json",
             "Access-Control-Allow-Origin": "*"
