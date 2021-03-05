@@ -35,7 +35,6 @@ import './theme/variables.css';
 
 //components
 import GivingLanding from './pages/GivingLanding';
-import Page from './pages/Page';
 import CharityInformation from './pages/CharityInformation';
 import CharityDonation from './pages/CharityDonation';
 
@@ -43,10 +42,6 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        {/* Add routes here for pages that are outside tabs */}
-        <Route path="/page">
-          <Page />
-        </Route>
         <Route path="/information">
             {/* This probably requires specific id */}
             <CharityInformation />
