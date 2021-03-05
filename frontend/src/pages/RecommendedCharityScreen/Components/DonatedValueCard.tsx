@@ -23,7 +23,7 @@ import './DonatedValueCard.css';
                                 <IonText>You have donated:</IonText>
                             </IonRow>
                             <IonRow>
-                                <div className = "donationValue">${formatDonationValue(user.totalDonated)}.00</div>
+                                <div className = "donationValue">{formatDonationValue(user.totalDonated)}</div>
                             </IonRow>
                         </IonCol>
                     </IonRow>
