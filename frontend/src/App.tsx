@@ -35,6 +35,8 @@ import './theme/variables.css';
 
 //components
 import GivingLanding from './pages/GivingLanding';
+import CharityInformation from './pages/CharityInformation';
+import CharityDonation from './pages/CharityDonation';
 
 const App: React.FC = () => (
   <IonApp>
@@ -52,6 +54,13 @@ const App: React.FC = () => (
           </Route>
           <Route path="/giving">
             <GivingLanding />
+          </Route>
+          <Route path="/information">
+            {/* This probably requires specific id */}
+            <CharityInformation />
+          </Route>
+          <Route path="/donation">
+            <CharityDonation />
           </Route>
           <Route exact path="/">
             <Redirect to="/tab1" />
