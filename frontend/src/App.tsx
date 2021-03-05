@@ -47,6 +47,7 @@ import { useState } from 'react';
 import UserContext from './components/UserContext';
 import UberEats from './pages/UberEats';
 import Reward from './pages/Reward';
+import ActiveCampaign from './pages/ActiveCampaign';
 
 setupConfig({
   mode: 'ios',
@@ -65,9 +66,9 @@ const App: React.FC = () => {
             <Route path="/login">
               <LoginScreen />
             </Route>
-            <Route path="/information">
+            {/* <Route path="/information">
               <CharityInformation />
-            </Route>
+            </Route> */}
             <Route path="/uber-eats/">
               <UberEats />
             </Route>
