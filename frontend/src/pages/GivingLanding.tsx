@@ -4,7 +4,6 @@ import RecommendedCharityScreen from './RecommendedCharityScreen/RecommendedChar
 const GivingLanding: React.FC = () => {
   return (
     <IonPage>
-      <Header />
       <IonContent fullscreen>
           <RecommendedCharityScreen
             onGoing = {true}
