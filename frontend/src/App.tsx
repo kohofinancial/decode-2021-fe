@@ -42,6 +42,7 @@ import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
 import CharityDonation from './pages/CharityDonation';
 import LoginScreen from './pages/Login';
+import UberEats from './pages/UberEats';
 
 setupConfig({
   mode: 'ios',
@@ -60,6 +61,9 @@ const App: React.FC = () => (
         </Route>
         <Route path="/donation">
           <CharityDonation />
+        </Route>
+        <Route path="/uber-eats/">
+          <UberEats />
         </Route>
         <Route path="/tabs">
           <IonTabs>
