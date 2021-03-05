@@ -1,5 +1,5 @@
 import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText, IonIcon } from '@ionic/react';
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { heartCircleOutline } from 'ionicons/icons';
 
@@ -23,7 +23,7 @@ import './DonatedValueCard.css';
                                 <IonText>You have donated:</IonText>
                             </IonRow>
                             <IonRow>
-                                <div className = "donationValue">${user.totalDonated}.00</div>
+                                <div className = "donationValue">${formatDonationValue(user.totalDonated)}.00</div>
                             </IonRow>
                         </IonCol>
                     </IonRow>
@@ -31,6 +31,12 @@ import './DonatedValueCard.css';
             </IonCardContent>
         </IonCard>
     );
-  };
-  
-  export default DonatedValueCard;
+};
+
+const formatDonationValue = (user: any) => {
+    if(user.balance)
+        return `$${user.balance.toFixed(2)}`;
+    return "$0.00"
+}
+
+export default DonatedValueCard;
