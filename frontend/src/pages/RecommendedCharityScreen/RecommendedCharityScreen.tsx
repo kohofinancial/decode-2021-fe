@@ -23,8 +23,6 @@ const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) 
     const [campaign, setCampaign] = useState<any>();
     const {user} = useContext(UserContext);
 
-    const {user} = useContext(UserContext);
-
     useEffect(() => {
         retrieveAllCharities(text);
         retrieveCampaign();
