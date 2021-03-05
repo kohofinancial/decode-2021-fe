@@ -63,7 +63,7 @@ const App: React.FC = () => {
             <Route path="/login">
               <LoginScreen/>
             </Route>
-            <Route path="/information">
+            <Route path="/information/:id">
               {/* This probably requires specific id */}
               <CharityInformation />
             </Route>

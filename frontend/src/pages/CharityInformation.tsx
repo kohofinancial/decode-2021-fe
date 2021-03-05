@@ -19,7 +19,6 @@ const CharityInformation: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
 
   const {user} = useContext(UserContext);
-  console.log(user);
 
   return (
     <IonPage>
