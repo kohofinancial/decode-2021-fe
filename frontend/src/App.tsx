@@ -42,7 +42,6 @@ import './theme/variables.css';
 //components
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
-import CharityDonation from './pages/CharityDonation';
 
 setupConfig({
   mode: 'ios',
@@ -53,11 +52,7 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
         <Route path="/information">
-          {/* This probably requires specific id */}
           <CharityInformation />
-        </Route>
-        <Route path="/donation">
-          <CharityDonation />
         </Route>
         <Route path="/tabs">
           <IonTabs>

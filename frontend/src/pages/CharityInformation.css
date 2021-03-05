@@ -1,0 +1,135 @@
+.content {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    color: #373E4D;
+    overflow: scroll;
+}
+
+.DonationProcessModal {
+    --max-height: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+.supportAction {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #9B9EA6;
+    margin: 0px;
+    border-radius: 0px;
+}
+
+.usersDonated {
+    display: flex;
+    justify-content: center;
+}
+
+/* .DonationProcessModal {
+    position: absolute;
+    bottom: 0px;
+    --max-height: 500px;
+} */
+
+.closeModal {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    top: 20px;
+    left: 356px;
+}
+
+.supportButton {
+    --background: #00579B;
+    color: #ffffff;
+}
+
+.supportAmount {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    color: #373E4D;
+    margin: 8px;
+}
+
+.supportAmountContent {
+    margin-left: 10px;
+}
+
+.createButton {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.buttonRow {
+    display: flex;
+    flex-flow: row nowrap;
+
+}
+
+.amountButton {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    height: 107px;
+    width: 85px;
+    border-radius: 4px;
+    box-shadow: 3px 6px 15px rgba(0, 0, 0, 0.1);
+    --background: #ffffff;
+    color: #373E4D;
+}
+
+.amountButton.selected {
+    border: 2px solid #F38374;
+}
+/* .amountButton:hover {
+    border-color: #F38374;
+} */
+
+.heartIcon {
+    color: #373E4D;
+    width: 30px;
+    height: 30px;
+}
+
+.heartIcon.selected {
+    color: #F38374;
+}
+
+.enterCustomAmount {
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    color: #373E4D;
+    margin: 8px;
+}
+
+.backArrowIcon {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    height: 24px;
+    width: 24px;
+}
+
+.enterCustomAmountItems {
+    position: relative;
+    top: 40%;
+    margin: auto;
+    width: 50%;
+}
+
+.inputField {
+    border-bottom: 1px solid #373E4D;
+    font-size: 18px;
+}
+
+.createButton {
+    --background: #00579B;
+    color: #ffffff;
+}
