@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText } from '@ionic/react';
-import CharityItem from './Components/CharityItem';
 import "./RecommendedCharityScreen.css";
 
+//components
+import CharityItem from './Components/CharityItem';
 import RecommendedSearchbar from './Components/RecommendedSearchbar';
+import CharityHeader from './Components/CharityHeader';
+import DonatedValueCard from './Components/DonatedValueCard';
+import GivingProgress from './Components/GivingProgress';
+import GoalCompletedCard from './Components/GoalCompletedCard';
 
-const RecommendedCharityScreen: React.FC = () => {
+interface ContainerProps {
+    onGoing: boolean,
+    filled: boolean
+  }
+
+const RecommendedCharityScreen: React.FC<ContainerProps> = ({ onGoing, filled}) => {
     const [text, setText] = useState<string>("");
     const [charities, setCharities] = useState<any>();
 
@@ -13,6 +23,7 @@ const RecommendedCharityScreen: React.FC = () => {
         retrieveAllCharities(text);
     }, [])
 
+    //get api to retrieve all charities
     const retrieveAllCharities = (category: string) => {
         fetch("https://decode-be-2021.herokuapp.com/charities?category=" + category,{headers: {
             "Accept": "application/json",
@@ -24,6 +35,7 @@ const RecommendedCharityScreen: React.FC = () => {
         })
     }
 
+    //search
     const handleKeyDown = (e: any) => {
         if(e.key === "Enter"){
             retrieveAllCharities(text);
@@ -33,27 +45,18 @@ const RecommendedCharityScreen: React.FC = () => {
     return (
         <div className = "recommendCharityScreen">
             <div>
-                <div className = "recommendedTitle">Donations</div>
-                <div className = "description">
-                    With everything that’s happening right now, it’s a great time to give back to the community.
-                </div>
-                <IonCard className = "donationCard">
-                    <IonCardContent>
-                        <IonGrid>
-                            <IonRow>
-                                <IonCol size = "2">te</IonCol>
-                                <IonCol>
-                                    <IonRow>
-                                        <IonText>You have donated:</IonText>
-                                    </IonRow>
-                                    <IonRow>
-                                        <div className = "donationValue">$0.00</div>
-                                    </IonRow>
-                                </IonCol>
-                            </IonRow>
-                        </IonGrid>
-                    </IonCardContent>
-                </IonCard>
+                <CharityHeader/>
+                <DonatedValueCard/>
+                {onGoing && charities &&
+                    <GivingProgress
+                        data = {charities[0]} />
+                }
+                {filled && charities &&
+                    <GoalCompletedCard
+                        data = {charities[0]}/>}
+                {(onGoing || filled) &&
+                <div className = "browseText">Browse for your next impact</div>
+                        }
                 <RecommendedSearchbar
                     text = {text}
                     setText = {setText}

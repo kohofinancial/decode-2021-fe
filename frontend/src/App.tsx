@@ -74,6 +74,9 @@ const App: React.FC = () => (
               <Route path="/tabs/giving/landing">
                 <GivingLanding />
               </Route>
+              <Route path="/tabs/giving/charity">
+                <GivingLanding />
+              </Route>
               <Route exact path="/tabs/">
                 <Redirect to="/tabs/spending" />
               </Route>
