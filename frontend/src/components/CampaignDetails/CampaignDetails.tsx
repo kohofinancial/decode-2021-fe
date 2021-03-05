@@ -29,7 +29,7 @@ const CampaignDetails: React.FC<Props> = ({ charityLogo, campaignGoalProgress, c
         </div>
 
         <div className="headerGoalTextContainer">
-          <p className="headerGoalText"> ${campaignGoalProgress} of ${campaignGoalOverall} raised </p>
+          <p className="headerGoalText"> ${campaignGoalProgress.toFixed(2)} of ${campaignGoalOverall.toFixed(2)} raised </p>
         </div>
       </div>
 
