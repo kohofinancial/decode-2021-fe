@@ -19,3 +19,22 @@
     color: #00579B;
     font-size: 14px;
 }
+
+.charityTitle{
+    font-size: 24px;
+    margin: 20px;
+    text-align: center;
+}
+
+.charityInnerHTML{
+margin-bottom: 24px;
+}
+
+.charityInnerHTML > *{
+    display: inline-block;
+    margin: 0px 24px 24px 24px;
+}
+
+.charityIonItem{
+    --border-style: 0px;
+}

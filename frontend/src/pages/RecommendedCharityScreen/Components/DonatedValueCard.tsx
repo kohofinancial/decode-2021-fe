@@ -9,7 +9,6 @@ import './DonatedValueCard.css';
   
 const DonatedValueCard: React.FC = () => {
     const { user } = useContext(UserContext);
-    console.log(user);
     return (
         <IonCard className = "donationCard">
             <IonCardContent>
