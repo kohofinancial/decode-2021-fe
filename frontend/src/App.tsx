@@ -43,7 +43,7 @@ import './theme/variables.css';
 import GivingLanding from './pages/GivingLanding';
 import CharityInformation from './pages/CharityInformation';
 import LoginScreen from './pages/Login/index';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import UserContext from './components/UserContext';
 import UberEats from './pages/UberEats';
 import Reward from './pages/Reward';
