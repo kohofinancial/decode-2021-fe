@@ -9,6 +9,7 @@ const CharityInformation: React.FC = () => {
     const [donationGoal, setDonationGoal] = useState<Number | null>(null);
     const firstModalRef = useRef<HTMLIonModalElement | null>(null);
 
+
     const createCampaign = () => {
         setShowDonationModal(false);
     }
