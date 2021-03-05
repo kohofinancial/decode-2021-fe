@@ -1,6 +1,4 @@
 import { IonContent, IonPage } from '@ionic/react';
-import Header from '../components/Header';
-import GivingProgress from './GivingProgress';
 import RecommendedCharityScreen from './RecommendedCharityScreen/RecommendedCharityScreen';
 
 const GivingLanding: React.FC = () => {
@@ -8,11 +6,9 @@ const GivingLanding: React.FC = () => {
     <IonPage>
       <Header />
       <IonContent fullscreen>
-        {
-          true ? 
-          <RecommendedCharityScreen /> : 
-          <GivingProgress />
-        }
+          <RecommendedCharityScreen
+            onGoing = {true}
+            filled = {false}/> 
       </IonContent>
     </IonPage>
   );
