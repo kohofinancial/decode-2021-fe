@@ -1,8 +1,13 @@
 .donationCard{
     margin: 20px 10px;
+    background-color: white;
 }
 .donationValue{
     color: #00579B;
     font-weight: bolder;
     font-size: 32px;
+}
+.heartSize{
+    font-size: 64px;
+    color: #F38374;
 }

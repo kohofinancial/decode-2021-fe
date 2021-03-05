@@ -1,7 +1,7 @@
-import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText } from '@ionic/react';
+import { IonCard, IonGrid, IonRow,IonCol, IonCardContent, IonText, IonIcon } from '@ionic/react';
 import React from 'react';
 
-import ribbon from '../../../images/ribbon.png';
+import { heartCircleOutline } from 'ionicons/icons';
 
 //css
 import './DonatedValueCard.css';
@@ -10,14 +10,11 @@ import './DonatedValueCard.css';
     return (
         <IonCard className = "donationCard">
             <IonCardContent>
-                <IonGrid>
+                <IonGrid style = {{backgroundColor: "white"}}>
                     <IonRow>
                         <IonCol size = "2">
                             <IonRow>
-                                &nbsp;
-                            </IonRow>
-                            <IonRow>
-                                <img src = {ribbon}/>
+                                <IonIcon icon={heartCircleOutline} className = "heartSize" />
                             </IonRow>
                         </IonCol>
                         <IonCol>

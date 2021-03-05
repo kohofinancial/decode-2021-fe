@@ -1,3 +1,6 @@
+.charityName{
+    margin-bottom: 10px;
+}
 .progressBar{
     width: "100%";
     height: 15px;
@@ -9,5 +12,4 @@
     height: 100%;
     border-radius: 25px;
     background-color: #F38374;
-    width: 50px;
 }
