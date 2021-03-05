@@ -1,0 +1,33 @@
+@keyframes heartAnimation {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100% {transform: scale(1);}
+}
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    color: #373E4D;
+    text-align: center;
+}
+.iconHeart {
+    width: 100px;
+    height: 100px;
+    color: #ff8680;
+    animation: heartAnimation 2s;
+}
+
+.text {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.newGoalButton {
+    --background: #00579B;
+    color: #ffffff;
+}
