@@ -3,15 +3,19 @@ import { IonButton, IonContent, IonIcon, IonInput, IonItem, IonCheckbox, IonLabe
 import { chevronBackOutline } from 'ionicons/icons'
 import styles from './styles.module.css';
 import UserContext from '../../components/UserContext';
+import { useHistory } from "react-router-dom";
 
 const LoginScreen: React.FC = () => {
   const [username, setUsername] = useState<string|null|undefined>("");
   const [password, setPassword] = useState<string|null|undefined>("");
   const {user, setUser} = useContext(UserContext);
+  const history = useHistory();
 
   const onClick = () => {
     if(username)
       login(username as string);
+
+    history.push("/tabs");
   }
 
   const login = async(name: string) => {
