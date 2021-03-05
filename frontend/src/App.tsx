@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupConfig,
 } from '@ionic/react';
-import { IonReactHashRouter } from '@ionic/react-router';
+import { IonReactRouter } from '@ionic/react-router';
 import {
   heartCircleOutline,
   cardOutline,
@@ -58,7 +58,7 @@ const App: React.FC = () => {
   return(
     <UserContext.Provider value={{user, setUser}}>
       <IonApp>
-        <IonReactHashRouter>
+        <IonReactRouter>
           <IonRouterOutlet>
             <Route path="/login">
               <LoginScreen/>
@@ -109,10 +109,10 @@ const App: React.FC = () => {
               </IonTabs>
             </Route>
             <Route exact path="/">
-              <Redirect to="/login/" />
+              <Redirect to="/login" />
             </Route>
           </IonRouterOutlet>
-        </IonReactHashRouter>
+        </IonReactRouter>
       </IonApp>
     </UserContext.Provider>
   );

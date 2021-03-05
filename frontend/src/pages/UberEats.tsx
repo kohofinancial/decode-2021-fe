@@ -1,16 +1,18 @@
 import {
-  IonButton,
   IonContent,
-  IonLabel,
   IonPage,
   IonImg,
   IonAlert,
 } from '@ionic/react';
-import React, { useState }  from 'react';
+import React, { useState, useContext }  from 'react';
+import { useHistory } from "react-router-dom";
+import UserContext from '../components/UserContext';
 import './UberEats.css';
 
 const UberEats: React.FC = () => {
   const [showAlert, setShowAlert] = useState(false);
+  const history = useHistory();
+  const {user} = useContext(UserContext);
 
   const minPurchase = 10;
   const maxPurchase = 50;
@@ -33,8 +35,21 @@ const UberEats: React.FC = () => {
             {
               text: 'Done',
               handler: () => {
-                // TODO: Go back in history after confirming purchase
-                console.log('Purchase confirmed: $' + purchaseAmount);
+                fetch('https://decode-be-2021.herokuapp.com/transactions', {
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    userId: user._id,
+                    amount: purchaseAmount,
+                    type: "purchase",
+                    receiver: "Uber Eats"
+                  })
+                });
+                // Reroute to home
+                history.push("/tabs");
               }
             }
           ]}
